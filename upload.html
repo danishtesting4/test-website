@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Your Website</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <h1 class="logo">🌐 WEB PORTFOLIO GALLERY</h1>
+      <a href="index.html" class="back-btn">← Back to Gallery</a>
+    </div>
+  </nav>
+
+  <main class="container upload-container">
+    <section class="upload-section">
+      <h2>Upload Your Website</h2>
+      <form id="uploadForm" class="upload-form">
+        <div class="form-group">
+          <label for="siteName">Website Name *</label>
+          <input type="text" id="siteName" required placeholder="e.g., My Portfolio" />
+        </div>
+
+        <div class="form-group">
+          <label for="siteDescription">Description *</label>
+          <textarea id="siteDescription" required placeholder="Describe your website..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="siteCategory">Category *</label>
+          <select id="siteCategory" required>
+            <option value="">Select a category</option>
+            <option value="portfolio">Portfolio</option>
+            <option value="project">Project</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="htmlFile">HTML File *</label>
+          <input type="file" id="htmlFile" accept=".html" required />
+          <small>Single HTML file with inline CSS/JS only</small>
+        </div>
+
+        <div class="form-group">
+          <label for="thumbnailUrl">Thumbnail URL (optional)</label>
+          <input type="url" id="thumbnailUrl" placeholder="https://example.com/image.jpg" />
+        </div>
+
+        <button type="submit" class="submit-btn">📤 Upload Website</button>
+      </form>
+      <div id="uploadMessage" class="message"></div>
+    </section>
+  </main>
+
+  <script src="upload-script.js"></script>
+</body>
+</html>
