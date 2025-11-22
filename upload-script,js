@@ -1,0 +1,61 @@
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('uploadForm');
+  
+  if (form) {
+    form.addEventListener('submit', handleUpload);
+  }
+});
+
+function handleUpload(e) {
+  e.preventDefault();
+  
+  const siteName = document.getElementById('siteName').value;
+  const siteDescription = document.getElementById('siteDescription').value;
+  const siteCategory = document.getElementById('siteCategory').value;
+  const htmlFile = document.getElementById('htmlFile').files[0];
+  const thumbnailUrl = document.getElementById('thumbnailUrl').value;
+  
+  if (!siteName || !siteDescription || !siteCategory || !htmlFile) {
+    showMessage('Please fill in all required fields', 'error');
+    return;
+  }
+  
+  // Read file
+  const reader = new FileReader();
+  reader.onload = function(event) {
+    const fileContent = event.target.result;
+    
+    // Create website object
+    const newWebsite = {
+      id: Date.now(),
+      name: siteName,
+      description: siteDescription,
+      category: siteCategory,
+      url: '#', // In production, would upload to server
+      thumbnail: thumbnailUrl || '🌐',
+      date: new Date().toLocaleDateString(),
+      content: fileContent
+    };
+    
+    // Save to localStorage
+    let websites = JSON.parse(localStorage.getItem('websites')) || [];
+    websites.push(newWebsite);
+    localStorage.setItem('websites', JSON.stringify(websites));
+    
+    showMessage('Website uploaded successfully!', 'success');
+    document.getElementById('uploadForm').reset();
+    
+    // Redirect to gallery after 2 seconds
+    setTimeout(() => {
+      window.location.href = 'index.html';
+    }, 2000);
+  };
+  
+  reader.readAsText(htmlFile);
+}
+
+function showMessage(text, type) {
+  const messageDiv = document.getElementById('uploadMessage');
+  messageDiv.textContent = text;
+  messageDiv.className = 'message ' + type;
+}
