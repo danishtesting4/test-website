@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Portfolio Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container">
+      <h1 class="logo">🌐 WEB PORTFOLIO GALLERY</h1>
+      <div class="nav-controls">
+        <div class="search-container">
+          <input type="text" id="searchBar" class="search-bar" placeholder="Search websites..." />
+          <button id="searchBtn" class="search-btn">🔍 Search</button>
+        </div>
+        <a href="upload.html" class="upload-btn">+ Upload Your Website</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container">
+    <section class="gallery-section">
+      <h2>Featured Web Creations</h2>
+      <div id="filterOptions" class="filter-options">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="portfolio">Portfolio</button>
+        <button class="filter-btn" data-filter="project">Project</button>
+        <button class="filter-btn" data-filter="other">Other</button>
+      </div>
+      <div id="websiteGallery" class="websites-grid">
+        <!-- Websites loaded dynamically -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Web Portfolio Gallery | Share Your Creations!</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
